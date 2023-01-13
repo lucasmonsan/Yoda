@@ -1,33 +1,44 @@
-export const App = () => {
-  return (
-    <>
-      Lucas Monsan
-    </>
-  )
-}
-
-/*
-npm install firebase
-
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore, getDocs, collection, addDoc, doc, deleteDoc } from "firebase/firestore"
+import { useEffect, useState } from "react";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const firebaseApp = initializeApp({
   apiKey: "AIzaSyATxPrveeLquUgArZLj8g0CbGKOJ_ZZ6KA",
   authDomain: "yoda-monsan.firebaseapp.com",
   projectId: "yoda-monsan",
-  storageBucket: "yoda-monsan.appspot.com",
-  messagingSenderId: "360883182810",
-  appId: "1:360883182810:web:ca1e81c8452be0380759e3",
-  measurementId: "G-VSL49XTVEX"
-};
+});
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-*/
+export const App = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [users, setUsers] = useState([]);
+
+  const db = getFirestore(firebaseApp);
+  const userCollectionRef = collection(db, "users");
+
+  async function create() {
+    const user = await addDoc(userCollectionRef, {
+      name, email
+    });
+  };
+
+  async function erase(id) {
+    const user = doc(db, "users", id);
+    await deleteDoc(user);
+  }
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(userCollectionRef);
+      setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    };
+
+    getUsers();
+  }, [])
+
+  return (
+    <>
+      <h1>Lucas</h1>
+    </>
+  )
+}
