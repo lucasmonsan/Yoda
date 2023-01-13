@@ -42,3 +42,8 @@ export const App = () => {
     </>
   )
 }
+
+/*
+  https://dev.twitch.tv/console/apps
+  https://www.igdb.com/
+*/
