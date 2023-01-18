@@ -12,7 +12,7 @@ export const Header = () => {
 
       <GenericBox flexDir="column" width="100%">
         <Title size="1rem" color="white">Lucas Monsan</Title>
-        <Text size="0.75rem" color="white">lucasmonsan@gmail.com</Text>
+        <Title size="0.7rem" color="#a0a0a0" weight="500">lucasmonsan@gmail.com</Title>
       </GenericBox>
 
       <IconBox>
