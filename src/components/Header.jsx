@@ -1,18 +1,23 @@
 import { ComponentContainer } from "../styles/Containers"
-import { ImageBox, GenericBox } from "../styles/Boxes"
+import { ImageBox, GenericBox, IconBox } from "../styles/Boxes"
 import { Text, Title } from "../styles/Texts"
+import { RiSettings4Line } from "react-icons/ri"
 
 export const Header = () => {
   return (
-    <ComponentContainer flexDir="row" alignItens="center" justCont="center">
-      <ImageBox width="4em" height="4em" radius="100%">
+    <ComponentContainer flexDir="row" gap="0.75em" alignItens="center" justCont="space-between" radius="1em" bgColor="#27314A">
+      <ImageBox width="2.5em" height="2.5em" radius="100%">
         <img src="https://avatars.githubusercontent.com/u/75125049?v=4" alt="profile image" />
       </ImageBox>
 
-      <GenericBox flexDir="column">
-        <Title size="1rem">Lucas Monsan</Title>
-        <Text size="0.75rem">lucasmonsan@gmail.com</Text>
+      <GenericBox flexDir="column" width="100%">
+        <Title size="1rem" color="white">Lucas Monsan</Title>
+        <Title size="0.7rem" color="#a0a0a0" weight="500">lucasmonsan@gmail.com</Title>
       </GenericBox>
+
+      <IconBox>
+        <RiSettings4Line color="white" size={24}/>
+      </IconBox>
     </ComponentContainer>
   )
 }
