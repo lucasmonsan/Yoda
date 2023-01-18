@@ -31,6 +31,7 @@ export const App = () => {
     const getUsers = async () => {
       const data = await getDocs(userCollectionRef);
       setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+      console.log(users[0].email)
     };
 
     getUsers();
@@ -38,7 +39,7 @@ export const App = () => {
 
   return (
     <>
-      <h1>Lucas</h1>
+      {users.map(user => <h1>{user.email}</h1>)}
     </>
   )
 }
