@@ -1,15 +1,47 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getFirestore, getDocs, collection, addDoc, doc, deleteDoc } from "firebase/firestore"
 
-export const Context = createContext();
+const firebaseApp = initializeApp({
+  apiKey: "AIzaSyATxPrveeLquUgArZLj8g0CbGKOJ_ZZ6KA",
+  authDomain: "yoda-monsan.firebaseapp.com",
+  projectId: "yoda-monsan",
+});
 
-export const RepoProvider = ({ children }) => {
-  const [repos, setRepos] = useState([]);
-  const [profile, setProfile] = useState([]);
-  const [showResult, setShowResult] = useState(false);
+export const FirebaseContext = createContext();
+
+export const FirebaseProvider = ({ children }) => {
+  const [myFolders, setMyFolders] = useState([]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [users, setUsers] = useState([]);
+
+  const db = getFirestore(firebaseApp);
+  const userCollectionRef = collection(db, "users");
+  const folderCollectionRef = collection(db, "folders");
+
+  async function create() {
+    const user = await addDoc(userCollectionRef, {
+      name, email
+    });
+  };
+
+  async function erase(id) {
+    const user = doc(db, "users", id);
+    await deleteDoc(user);
+  };
+
+  useEffect(() => {
+    const getFolders = async () => {
+      const data = await getDocs(folderCollectionRef);
+      setMyFolders(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    };
+    getFolders();
+  }, []);
 
   return (
-    <Context.Provider value={{repos, setRepos, profile, setProfile, showResult, setShowResult}}>
+    <FirebaseContext.Provider value={{myFolders, setMyFolders, users}}>
       {children}
-    </Context.Provider>
+    </FirebaseContext.Provider>
   )
 }
