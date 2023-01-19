@@ -3,15 +3,19 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 0.75em;
+  min-height: 92vh;
+  padding: var(--padding);
   display: flex;
   gap: 0.75em;
-  flex-direction: column;
+  flex-direction: ${props => props.flexDir || "column"};
+  align-items: ${props => props.alignItens};
+  justify-content: ${props => props.justCont};
+  background-color: cyan;
 `
 export const ComponentContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 0.75em;
+  padding: var(--padding);
   display: flex;
   gap: 0.75em;
   flex-direction: ${props => props.flexDir};
@@ -37,7 +41,6 @@ export const GenericContainer = styled.div`
   flex-direction: ${props => props.flexDir};
   align-items: ${props => props.alignItens};
   justify-content: ${props => props.justCont};
-  border: solid;
 `
 export const IconContainer = styled.div`
   display: flex;
@@ -46,4 +49,5 @@ export const IconContainer = styled.div`
   width: ${props => props.width};
   height: ${props => props.height};
   border-radius: ${props => props.radius};
+  background-color: ${props => props.bgColor};
 `
