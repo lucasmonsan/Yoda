@@ -1,5 +1,5 @@
 import { ComponentContainer, ImageContainer, GenericContainer, IconContainer } from "../styles/Containers"
-import { Title } from "../styles/Texts"
+import { Title } from "../styles/Elements"
 import { RiSettings4Line } from "react-icons/ri"
 
 export const Header = () => {
