@@ -2,15 +2,15 @@ import { createContext, useEffect, useState } from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseApp } from "../services/FirebaseConfig";
 
+const provider = new GoogleAuthProvider();
+
 export const authGoogleContext = createContext({});
 
 export const AuthGoogleProvider = ({ children }) => {
+  const auth = getAuth(firebaseApp);
   const [user, setUser] = useState(null);
   
-  const auth = getAuth(firebaseApp);
-  const provider = new GoogleAuthProvider();
-  
-  const signInGoogle = () => {   
+  const signInGoogle = () => {
     signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -26,7 +26,7 @@ export const AuthGoogleProvider = ({ children }) => {
       const credential = GoogleAuthProvider.credentialFromError(error);
     });
   }
-
+  
   useEffect(() => {
     const loadStoreAuth = () => {
       const sessionToken = sessionStorage.getItem("@AuthFirebase:token");
@@ -38,7 +38,7 @@ export const AuthGoogleProvider = ({ children }) => {
     }
     loadStoreAuth();
   }, []);
-
+  
   return (
     <authGoogleContext.Provider value={{signInGoogle, signed: !!user}}>
       {children}
