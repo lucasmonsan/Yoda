@@ -1,22 +1,22 @@
 import { ComponentContainer, IconContainer } from "../styles/Containers";
 import { Input } from "../styles/Elements";
-import { RiFolderAddLine, RiEditLine, RiUser3Line } from "react-icons/ri"
+import { RiFolderAddLine, RiEditLine } from "react-icons/ri"
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeController";
 
 export const Dropdown = () => {
+  const { colorBgComponent } = useContext(ThemeContext);
+  
   return (
-    <ComponentContainer flexDir="row" alignItens="center" justCont="space-between">
-      <IconContainer>
-        <RiUser3Line color="white" size={20}/>
-      </IconContainer>
-      
-      <Input size="1rem" weight="600" color="#FFFFFF"/>
+    <ComponentContainer flexDir="row" alignItens="center" justCont="space-between" bgColor={colorBgComponent}>
+      <Input size="1rem" weight="600"/>
       
       <IconContainer>
-        <RiEditLine color="white" size={20}/>
+        <RiEditLine size={20}/>
       </IconContainer>
       
       <IconContainer>
-        <RiFolderAddLine color="white" size={20}/>
+        <RiFolderAddLine size={20}/>
       </IconContainer>
     </ComponentContainer>
   );

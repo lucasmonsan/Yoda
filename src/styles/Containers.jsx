@@ -3,14 +3,15 @@ import styled from "styled-components";
 export const PageContainer = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 92vh;
+  min-height: 100dvh;
   padding: var(--padding);
   display: flex;
   gap: 0.75em;
   flex-direction: ${props => props.flexDir || "column"};
   align-items: ${props => props.alignItens};
   justify-content: ${props => props.justCont};
-  background-color: cyan;
+  background-color: ${props => props.bgColor};
+  color: ${props => props.color};
 `
 export const ComponentContainer = styled.div`
   width: 100%;
@@ -22,7 +23,8 @@ export const ComponentContainer = styled.div`
   align-items: ${props => props.alignItens};
   justify-content: ${props => props.justCont};
   border-radius: 1em;
-  background-color: #27314A;
+  background-color: ${props => props.bgColor};
+  color: ${props => props.color};
 `
 /********************************************/
 export const ImageContainer = styled.div`
