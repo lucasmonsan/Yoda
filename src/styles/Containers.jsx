@@ -25,6 +25,7 @@ export const ComponentContainer = styled.div`
   border-radius: 1em;
   background-color: ${props => props.bgColor};
   color: ${props => props.color};
+  box-shadow: 0 0 8px #00000030;
 `
 /********************************************/
 export const ImageContainer = styled.div`
