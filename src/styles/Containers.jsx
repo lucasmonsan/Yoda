@@ -6,11 +6,11 @@ export const PageContainer = styled.div`
   min-height: 100dvh;
   padding: var(--padding);
   display: flex;
-  gap: 0.75em;
+  gap: var(--gap);
   flex-direction: ${props => props.flexDir || "column"};
-  align-items: ${props => props.alignItens};
+  align-items: ${props => props.alignItems};
   justify-content: ${props => props.justCont};
-  background-color: ${props => props.bgColor};
+  background: ${props => props.bg};
   color: ${props => props.color};
 `
 export const ComponentContainer = styled.div`
@@ -18,14 +18,29 @@ export const ComponentContainer = styled.div`
   height: 100%;
   padding: var(--padding);
   display: flex;
-  gap: 0.75em;
+  gap: var(--gap);
   flex-direction: ${props => props.flexDir};
-  align-items: ${props => props.alignItens};
+  align-items: ${props => props.alignItems};
   justify-content: ${props => props.justCont};
-  border-radius: 1em;
-  background-color: ${props => props.bgColor};
+  border-radius: var(--radius);
+  background: ${props => props.bg};
   color: ${props => props.color};
-  box-shadow: 0 0 8px #00000030;
+  box-shadow: var(--shadow);
+`
+export const FixedContainer = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  gap: 0.5em;
+  align-items: ${props => props.alignItems};
+  justify-content: center;
+  width: 100%;
+  height: ${props => props.height};
+  padding: ${props => props.padding};
+  background: ${props => props.bg};
+  opacity: ${props => props.opacity || "0"};
+  transition: all 0.25s;
 `
 /********************************************/
 export const ImageContainer = styled.div`
@@ -35,14 +50,14 @@ export const ImageContainer = styled.div`
   justify-content: center;
   width: ${props => props.width};
   height: ${props => props.height};
-  border: solid 2px white;
+  border: solid 2px;
   border-radius: ${props => props.radius};
 `
 export const GenericContainer = styled.div`
   display: flex;
   flex-grow: 1;
   flex-direction: ${props => props.flexDir};
-  align-items: ${props => props.alignItens};
+  align-items: ${props => props.alignItems};
   justify-content: ${props => props.justCont};
 `
 export const IconContainer = styled.div`
@@ -51,6 +66,6 @@ export const IconContainer = styled.div`
   justify-content: center;
   width: ${props => props.width};
   height: ${props => props.height};
-  border-radius: ${props => props.radius};
-  background-color: ${props => props.bgColor};
+  border-radius: var(--radius);
+  background: ${props => props.bg};
 `

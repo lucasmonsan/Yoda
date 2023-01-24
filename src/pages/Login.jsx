@@ -18,7 +18,7 @@ export const Login = () => {
     return <Navigate to="/home"/>
   } else {
     return (
-      <PageContainer alignItens="center" justCont="center" bgColor={colorBgPage} color={colorText}>
+      <PageContainer alignItems="center" justCont="center" bg={colorBgPage} color={colorText}>
         <IconContainer onClick={loginGoogle}>
           <RiGoogleFill size={32} />
         </IconContainer>
