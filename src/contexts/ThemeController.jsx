@@ -7,6 +7,7 @@ export const ThemeProvider = ({children}) => {
   const [colorBgComponent, setColorBgComponent] = useState("");
   const [colorText, setColorText] = useState("");
   const [switchTheme, setSwitchTheme] = useState(false);
+  const colors = {red:"#ff595e",orange:"#ff924c",yellow:"#ffca3a",green:"#8ac926",blue:"#1982c4",purple:"#6a4c93"}
   
   useEffect(() => {
     if (switchTheme) {
@@ -21,7 +22,7 @@ export const ThemeProvider = ({children}) => {
   }, [switchTheme]);
   
   return (
-    <ThemeContext.Provider value={{colorBgPage, colorBgComponent, colorText }}>
+    <ThemeContext.Provider value={{colorBgPage, colorBgComponent, colorText, colors, switchTheme, setSwitchTheme }}>
       {children}
     </ThemeContext.Provider>
   )

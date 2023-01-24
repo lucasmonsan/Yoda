@@ -33,14 +33,14 @@ export const AuthGoogleProvider = ({ children }) => {
       const sessionUser = sessionStorage.getItem("@AuthFirebase:user");
       
       if (sessionToken && sessionUser) {
-        setUser(sessionUser);
+        setUser(JSON.parse(sessionUser));
       }
     }
     loadStoreAuth();
   }, []);
   
   return (
-    <authGoogleContext.Provider value={{signInGoogle, signed: !!user}}>
+    <authGoogleContext.Provider value={{signInGoogle, signed: !!user, user}}>
       {children}
     </authGoogleContext.Provider>
   );

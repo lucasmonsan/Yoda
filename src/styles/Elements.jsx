@@ -16,15 +16,25 @@ export const Input = styled.input`
   font-size: ${props => props.size};
   font-weight: ${props => props.weight};
   color: ${props => props.color};
-  background-color: transparent;
+  background: transparent;
   border: none;
   outline: none;
 `
 export const Button = styled.button`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: ${props => props.padding};
+  width: ${props => props.width};
+  height: ${props => props.height};
+  padding: var(--padding);
   border: none;
-  background-color: transparent;
+  border-radius: var(--radius);
+  color: ${props => props.color};
+  background: ${props => props.bg};
+  box-shadow: ${props => props.shadow};
+  transform: ${props => props.transform || "scale(0)"};
+  transition: all 0.25s;
+  
+  :active {transform: scale(0.95)}
 `
