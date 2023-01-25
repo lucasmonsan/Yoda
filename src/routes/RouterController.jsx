@@ -9,6 +9,7 @@ export const RouterController = () => {
       <Routes>
         <Route path="/" element={<PrivateRoutes/>}>
           <Route path="/home" element={<Home/>}/>
+          <Route path="/home/addoptions" element={<Home/>}/>
         </Route>        
         <Route path="login" element={<Login/>}/>
       </Routes>

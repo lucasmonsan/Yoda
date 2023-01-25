@@ -4,7 +4,7 @@ import { ThemeContext } from "../contexts/ThemeController"
 import { FixedContainer } from "../styles/Containers"
 import { Button, Title } from "../styles/Elements";
 
-export const BtnAddOptions = ({show}) => {
+export const BtnAddOptions = ({btnOptionsTrigger}) => {
   const { colorBgPage, colorBgComponent, colors } = useContext(ThemeContext);
   
   useEffect(() => {
@@ -14,12 +14,22 @@ export const BtnAddOptions = ({show}) => {
     const auxBtn3 = document.getElementById("BtnAddOptions3");
     const auxBtn4 = document.getElementById("BtnAddOptions4");
     
-    setTimeout(() => {auxBtn0.style.opacity = 1}, 50);
-    setTimeout(() => {auxBtn1.style.transform = "scale(1)"}, 100);
-    setTimeout(() => {auxBtn2.style.transform = "scale(1)"}, 150);
-    setTimeout(() => {auxBtn3.style.transform = "scale(1)"}, 200);
-    setTimeout(() => {auxBtn4.style.transform = "scale(1)"}, 250);
-  },[]);
+    if (btnOptionsTrigger) {
+      auxBtn0.style.top = "0"
+      setTimeout(() => {auxBtn0.style.opacity = 1}, 50);
+      setTimeout(() => {auxBtn1.style.transform = "scale(1)"}, 100);
+      setTimeout(() => {auxBtn2.style.transform = "scale(1)"}, 150);
+      setTimeout(() => {auxBtn3.style.transform = "scale(1)"}, 200);
+      setTimeout(() => {auxBtn4.style.transform = "scale(1)"}, 250);
+    } else {
+      setTimeout(() => {auxBtn1.style.transform = "scale(0)"}, 50);
+      setTimeout(() => {auxBtn2.style.transform = "scale(0)"}, 100);
+      setTimeout(() => {auxBtn3.style.transform = "scale(0)"}, 150);
+      setTimeout(() => {auxBtn4.style.transform = "scale(0)"}, 200);
+      setTimeout(() => {auxBtn0.style.opacity = 0}, 300);
+      setTimeout(() => {auxBtn0.style.top = "100vh"}, 400);
+    }
+  },[btnOptionsTrigger]);
   return (
     <FixedContainer id="BtnContainer" alignItems="flex-end" height="100%" padding="0 0 5.5em 0" bg={colorBgPage+"dd"}>
       <Button id="BtnAddOptions1" width="5em" shadow="var(--shadow)" bg={colorBgComponent} color={colors.blue}>
