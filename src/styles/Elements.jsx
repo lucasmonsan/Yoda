@@ -33,7 +33,7 @@ export const Button = styled.button`
   color: ${props => props.color};
   background: ${props => props.bg};
   box-shadow: ${props => props.shadow};
-  transform: ${props => props.transform || "scale(0)"};
+  transform: ${props => props.transform};
   transition: all 0.25s;
   
   :active {transform: scale(0.95)}
