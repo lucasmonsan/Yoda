@@ -13,3 +13,4 @@ img {
   width: 100%;
 }
 /**************************************************/
+.transition {transition: all 0.25s ease-in-out;}
