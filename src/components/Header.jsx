@@ -9,7 +9,7 @@ export const Header = () => {
   const { user } = useContext(authGoogleContext);
   
   return (
-    <ComponentContainer flexDir="row" alignItems="center" justCont="space-between" bgColor={colorBgComponent}>
+    <ComponentContainer flexDir="row" alignItems="center" justCont="space-between" bg={colorBgComponent}>
       <ImageContainer width="2.5em" height="2.5em" radius="100%">
         <img src={user.photoURL} alt="profile image"/>
       </ImageContainer>
