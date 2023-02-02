@@ -21,6 +21,7 @@ export const Input = styled.input`
   outline: none;
 `
 export const Button = styled.button`
+  z-index: ${props => props.zIndex};
   display: flex;
   flex-direction: column;
   align-items: center;
