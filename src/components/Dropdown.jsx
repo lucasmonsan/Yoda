@@ -8,7 +8,7 @@ export const Dropdown = () => {
   const { colorBgComponent } = useContext(ThemeContext);
   
   return (
-    <ComponentContainer flexDir="row" alignItems="center" justCont="space-between" bgColor={colorBgComponent}>
+    <ComponentContainer flexDir="row" alignItems="center" justCont="space-between" bg={colorBgComponent}>
       <Input size="1rem" weight="600" color="inherit"/>
       
       <IconContainer>
