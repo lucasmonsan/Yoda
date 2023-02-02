@@ -33,7 +33,7 @@ export const Button = styled.button`
   border-radius: var(--radius);
   color: ${props => props.color};
   background: ${props => props.bg};
-  box-shadow: ${props => props.shadow};
+  box-shadow: var(--shadow);
   transform: ${props => props.transform};
   transition: all 0.25s;
   
