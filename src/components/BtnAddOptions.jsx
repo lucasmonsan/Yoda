@@ -8,6 +8,10 @@ import { Button, Title } from "../styles/Elements";
 export const BtnAddOptions = () => {
   const { colorBgPage, colorBgComponent, colors } = useContext(ThemeContext);
   const { situation, setSituation } = useContext(SituationContext);
+
+  const controlBtnAddOptions = (option) => {
+    alert(option)
+  }
   
   useEffect(() => {
     const auxBtn0 = document.getElementById("BtnContainer");
@@ -33,22 +37,22 @@ export const BtnAddOptions = () => {
   
   return (
     <FixedContainer id="BtnContainer" opacity="0" alignItems="flex-end" height="100%" padding="0 0 5.5em 0" bg={colorBgPage+"dd"}>
-      <Button id="BtnAddOptions1" transform="scale(0)" width="5em" shadow="var(--shadow)" bg={colorBgComponent} color={colors.blue}>
+      <Button id="BtnAddOptions1" transform="scale(0)" bg={colorBgComponent} color={colors.blue} onClick={() => controlBtnAddOptions("addFolder")}>
         <RiFolderAddLine size={20}/>
         <Title>Pasta</Title>
       </Button>
       
-      <Button id="BtnAddOptions2" transform="scale(0)" width="5em" shadow="var(--shadow)" bg={colorBgComponent} color={colors.red}>
+      <Button id="BtnAddOptions2" transform="scale(0)" bg={colorBgComponent} color={colors.red} onClick={() => controlBtnAddOptions("addPay")}>
         <RiArrowDownCircleLine size={20}/>
         <Title>Paguei</Title>
       </Button>
       
-      <Button id="BtnAddOptions3" transform="scale(0)" width="5em" shadow="var(--shadow)" bg={colorBgComponent} color={colors.green}>
+      <Button id="BtnAddOptions3" transform="scale(0)" bg={colorBgComponent} color={colors.green} onClick={() => controlBtnAddOptions("addReceive")}>
         <RiArrowUpCircleLine size={20}/>
         <Title>Recebi</Title>
       </Button>
       
-      <Button id="BtnAddOptions4" transform="scale(0)" width="5em" shadow="var(--shadow)" bg={colorBgComponent} color={colors.yellow}>
+      <Button id="BtnAddOptions4" transform="scale(0)" bg={colorBgComponent} color={colors.yellow} onClick={() => controlBtnAddOptions("addTransfer")}>
         <RiArrowUpDownFill size={20}/>
         <Title>Transferi</Title>
       </Button>
