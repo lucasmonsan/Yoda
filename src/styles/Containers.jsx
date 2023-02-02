@@ -39,7 +39,7 @@ export const FixedContainer = styled.div`
   height: ${props => props.height};
   padding: ${props => props.padding};
   background: ${props => props.bg};
-  opacity: ${props => props.opacity || "0"};
+  opacity: ${props => props.opacity};
   transition: all 0.25s;
 `
 /********************************************/

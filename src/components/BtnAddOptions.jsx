@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react"
 import { RiFolderAddLine, RiArrowUpCircleLine, RiArrowDownCircleLine, RiArrowUpDownFill } from "react-icons/ri"
-import { AnimationsContext } from "../contexts/AnimationsController";
+import { SituationContext } from "../contexts/SituationController";
 import { ThemeContext } from "../contexts/ThemeController"
 import { FixedContainer } from "../styles/Containers"
 import { Button, Title } from "../styles/Elements";
 
 export const BtnAddOptions = () => {
   const { colorBgPage, colorBgComponent, colors } = useContext(ThemeContext);
-  const { triggerHomeAdd, setTriggerHomeAdd } = useContext(AnimationsContext);
+  const { situation, setSituation } = useContext(SituationContext);
   
   useEffect(() => {
     const auxBtn0 = document.getElementById("BtnContainer");
@@ -16,7 +16,7 @@ export const BtnAddOptions = () => {
     const auxBtn3 = document.getElementById("BtnAddOptions3");
     const auxBtn4 = document.getElementById("BtnAddOptions4");
     
-    if (triggerHomeAdd) {
+    if (situation === "home_btnAddOptions") {
       setTimeout(() => {auxBtn0.style.opacity = 1}, 50);
       setTimeout(() => {auxBtn1.style.transform = "scale(1)"}, 100);
       setTimeout(() => {auxBtn2.style.transform = "scale(1)"}, 150);
@@ -29,10 +29,10 @@ export const BtnAddOptions = () => {
       setTimeout(() => {auxBtn4.style.transform = "scale(0)"}, 150);
       setTimeout(() => {auxBtn0.style.opacity = 0}, 250);
     }
-  },[triggerHomeAdd]);
+  },[situation]);
   
   return (
-    <FixedContainer id="BtnContainer" alignItems="flex-end" height="100%" padding="0 0 5.5em 0" bg={colorBgPage+"dd"}>
+    <FixedContainer id="BtnContainer" opacity="0" alignItems="flex-end" height="100%" padding="0 0 5.5em 0" bg={colorBgPage+"dd"}>
       <Button id="BtnAddOptions1" transform="scale(0)" width="5em" shadow="var(--shadow)" bg={colorBgComponent} color={colors.blue}>
         <RiFolderAddLine size={20}/>
         <Title>Pasta</Title>
