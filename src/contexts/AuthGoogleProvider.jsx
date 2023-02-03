@@ -45,21 +45,3 @@ export const AuthGoogleProvider = ({ children }) => {
     </authGoogleContext.Provider>
   );
 }
-/*
-  async function create() {
-    const user = await addDoc(userCollectionRef, {
-      name, email
-    });
-  };
-  async function erase(id) {
-    const user = doc(db, "users", id);
-    await deleteDoc(user);
-  };
-  useEffect(() => {
-    const getUsers = async () => {
-      const data = await getDocs(userCollectionRef);
-      setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-    };
-    getUsers();
-  }, []);
-*/
