@@ -5,15 +5,18 @@ import { RouterController } from './routes/RouterController'
 import { AuthGoogleProvider } from "./contexts/AuthGoogleProvider"
 import { ThemeProvider } from './contexts/ThemeController'
 import { SituationProvider } from './contexts/SituationController'
+import { FirebaseDataProvider } from './contexts/FirebaseDataProvider'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthGoogleProvider>      
-      <ThemeProvider>
-        <SituationProvider>
-          <RouterController />
-        </SituationProvider>    
-      </ThemeProvider>
+    <AuthGoogleProvider>
+      <FirebaseDataProvider>  
+        <ThemeProvider>
+          <SituationProvider>
+            <RouterController />
+          </SituationProvider>    
+        </ThemeProvider>
+      </FirebaseDataProvider>
     </AuthGoogleProvider>
   </React.StrictMode>
 )
